@@ -11,3 +11,8 @@ using Python, SQL, Excel, Power BI.
 - **SQL** — Business question analysis 
 - **Excel** — Summary tables
 - **Power BI** — Interactive dashboard
+## Dashboard Preview
+![Dashboard](images/Dashboard.jpg)
+
+## Forecast Preview
+![Forecast](images/Forecast.png)
