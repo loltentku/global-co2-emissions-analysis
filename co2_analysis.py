@@ -18,12 +18,6 @@ print(missing_pct)
 print("\n=== จำนวนประเทศ และช่วงปี ===")
 print(f"จำนวนประเทศ: {df['country'].nunique()}")
 print(f"ปี: {df['year'].min()} - {df['year'].max()}")
-""" 
-iso_code ไม่มี empty string เลย 
-ไม่ใช้คอลัมน์ consumption_co2 เพราะ missing เยอะ
-gas_co2 missing 48% — ใช้ได้แต่ต้องระวัง
-co2 และ co2_per_capita missing แค่ 5.6%  ใช้เป็น main metric ได้ """
-
 
 df = df.drop(columns=['consumption_co2'])
 df = df.dropna(subset=['co2'])
