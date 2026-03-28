@@ -5,16 +5,13 @@ import matplotlib.ticker as mticker
 import sqlite3
 from sklearn.linear_model import LinearRegression
 
-# === โหลดข้อมูลจาก database ===
 conn = sqlite3.connect('co2_emissions.db')
 df = pd.read_sql_query("SELECT * FROM emissions", conn)
 conn.close()
 
-# === Global CO2 รายปี ===
 global_co2 = df.groupby('year')['co2'].sum().reset_index()
 global_co2.columns = ['year', 'total_co2']
 
-# === Train Model ===
 X = global_co2['year'].values.reshape(-1, 1)
 y = global_co2['total_co2'].values
 
@@ -32,8 +29,6 @@ future_df = pd.DataFrame({
 
 print("=== Predicted Global CO2 (2025–2044) ===")
 print(future_df)
-
-# === Plot ===
 fig, ax = plt.subplots(figsize=(12, 6))
 ax.plot(global_co2['year'], global_co2['total_co2'],
         color='steelblue', linewidth=2, label='Historical')
